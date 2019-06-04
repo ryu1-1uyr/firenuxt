@@ -41,7 +41,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/element-ui'
+    '@/plugins/element-ui',
+    '@/plugins/firebase.js'
   ],
 
   /*
@@ -55,7 +56,7 @@ export default {
   ** Axios module configuration
   */
   axios: {
-      baseURL: 'https://nuxtonfirebaseapp.firebaseio.com'
+      // baseURL: 'https://nuxtonfirebaseapp.firebaseio.com'
     // See https://github.com/nuxt-community/axios-module#options
   },
 

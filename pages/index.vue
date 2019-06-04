@@ -4,6 +4,11 @@
       <div slot="header" class="clearfix">
         <span>ログイン</span>
       </div>
+
+      <div @click="getSampleData">
+        <button>test GET mydata</button>
+      </div>
+
       <form>
         <div class="form-content">
           <span>ユーザー ID</span>
@@ -23,6 +28,7 @@
 <script>
   import { mapGetters, mapActions } from 'vuex'
   import Cookies from 'universal-cookie'
+  import firebase from '~/plugins/firebase'
 
   export default {
     asyncData({ redirect, store }) {
@@ -43,6 +49,31 @@
       ...mapGetters(['user'])
     },
     methods: {
+
+      async getSampleData () {
+        // const getelement = this.$axios.$get('https://nuxtonfirebaseapp.firebaseio.com/user.json',{
+        //   headers: {
+        //     apiKey: "AIzaSyBE_wTS0kMYi_21K0O7s5HDl1BujTKTaRg",
+        //   },
+        //   data: {}
+        // })
+        // console.log(getelement)
+
+        const db =  firebase.firestore()
+        db.collection("users").get().then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            console.log(doc.data());
+          });
+        })
+
+        // db.collection("users").add({
+        //   first: "Ada",
+        //   last: "Lovelace",
+        //   born: 1815
+        // }) データ追加のイメージ
+
+      },
+
       async handleClickSubmit() {
         console.log("in handle click")
         const cookies = new Cookies()
@@ -70,7 +101,9 @@
             })
           }
         } else {
+          console.log("in else")
           try {
+            console.log("in try")
             await this.login({ ...this.formData })
             this.$notify({
               type: 'success',
