@@ -1,6 +1,7 @@
 <template>
   <div>
     <TheHeader />
+    <Postdata />
     <div class="wrapper">
       <nuxt class="container" />
     </div>
@@ -9,9 +10,11 @@
 
 <script>
   import TheHeader from '~/components/TheHeader.vue'
+  import Postdata from '~/components/Postdata'
   export default {
     components: {
-      TheHeader
+      TheHeader,
+      Postdata
     }
   }
 </script>

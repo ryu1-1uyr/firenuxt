@@ -3,7 +3,7 @@
     <el-menu-item index="1" style="pointer-events:none;">
       Nuxt Diary App
     </el-menu-item>
-    <el-menu-item index="2" :route="{ path: '/posts/' }">
+    <el-menu-item index="2" :route="{ path: '/posts/new' }">
       投稿一覧
     </el-menu-item>
 

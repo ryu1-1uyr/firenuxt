@@ -1,27 +1,43 @@
 <template>
   <section class="container">
-    <el-card style="flex: 1">
-      <div slot="header" class="clearfix">
-        <span>ログイン</span>
-      </div>
+    <div>
+    <!--<el-card style="flex: 1">-->
+      <!--<div slot="header" class="clearfix">-->
+        <!--<span>ログイン</span>-->
+      <!--</div>-->
+
+      <!--&lt;!&ndash;<div @click="getSampleData">&ndash;&gt;-->
+        <!--&lt;!&ndash;<button>test GET mydata</button>&ndash;&gt;-->
+      <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+      <!--<form>-->
+        <!--<div class="form-content">-->
+          <!--<span>ユーザー ID</span>-->
+          <!--<el-input placeholder="" v-model="formData.id" />-->
+        <!--</div>-->
+        <!--<div class="form-content">-->
+          <!--<el-checkbox v-model="isCreateMode">アカウントを作成する</el-checkbox>-->
+        <!--</div>-->
+        <!--<div class="text-right">-->
+          <!--<el-button type="primary" @click="handleClickSubmit">{{buttonText}}</el-button>-->
+        <!--</div>-->
+      <!--</form>-->
+    <!--</el-card>-->
 
       <div @click="getSampleData">
-        <button>test GET mydata</button>
+      <button>test GET mydata</button>
       </div>
+    </div>
+    <br>
+    <div>
+      <el-card v-for="user of userlist">
 
-      <form>
-        <div class="form-content">
-          <span>ユーザー ID</span>
-          <el-input placeholder="" v-model="formData.id" />
-        </div>
-        <div class="form-content">
-          <el-checkbox v-model="isCreateMode">アカウントを作成する</el-checkbox>
-        </div>
-        <div class="text-right">
-          <el-button type="primary" @click="handleClickSubmit">{{buttonText}}</el-button>
-        </div>
-      </form>
-    </el-card>
+        {{user}}
+        <p>{{user.name}}</p>
+      </el-card>
+      <!--<input type="none" value="{{loadList}}"  />-->
+      <p style='display: none'>{{loadList}}</p>
+    </div>
   </section>
 </template>
 
@@ -42,9 +58,22 @@
         }
       }
     },
+    data (){
+      return {
+        userlist:[]
+      }
+    },
     computed: {
       buttonText() {
         return this.isCreateMode ? '新規登録' : 'ログイン'
+      },
+      loadList () {
+        const db =  firebase.firestore()
+        db.collection("users").get().then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            this.userlist.push(doc.data());
+          });
+        })
       },
       ...mapGetters(['user'])
     },
@@ -59,10 +88,12 @@
         // })
         // console.log(getelement)
 
+        this.userlist = []
+
         const db =  firebase.firestore()
         db.collection("users").get().then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
-            console.log(doc.data());
+            this.userlist.push(doc.data());
           });
         })
 
@@ -76,12 +107,12 @@
 
       async handleClickSubmit() {
         console.log("in handle click")
-        const cookies = new Cookies()
+        // const cookies = new Cookies()
         if (this.isCreateMode) {
           console.log("on if")
           try {
-            await this.register({ ...this.formData })
-            console.log(JSON.stringify(this.user))
+            // await this.register({ ...this.formData })
+            // console.log(JSON.stringify(this.user))
             this.$notify({
               type: 'success',
               title: 'アカウント作成完了',
@@ -89,8 +120,8 @@
               position: 'bottom-right',
               duration: 1000
             })
-            cookies.set('user', JSON.stringify(this.user))
-            console.log(JSON.stringify(this.user))
+            // cookies.set('user', JSON.stringify(this.user))
+            // console.log(JSON.stringify(this.user))
             this.$router.push('/posts/')
           } catch (e) {
             this.$notify.error({
@@ -112,7 +143,7 @@
               position: 'bottom-right',
               duration: 1000
             })
-            cookies.set('user', JSON.stringify(this.user))
+            // cookies.set('user', JSON.stringify(this.user))
             this.$router.push('/posts/')
           } catch (e) {
             this.$notify.error({
