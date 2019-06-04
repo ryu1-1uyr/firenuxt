@@ -1,98 +1,67 @@
 <template>
-  <section class="container">
+  <section class="container posts-page">
     <el-card style="flex: 1">
       <div slot="header" class="clearfix">
-        <span>ログイン</span>
+        <span>新着投稿</span>
       </div>
-      <form>
-        <div class="form-content">
-          <span>ユーザー ID</span>
-          <el-input placeholder="" v-model="formData.id" />
-        </div>
-        <div class="form-content">
-          <el-checkbox v-model="isCreateMode">アカウントを作成する</el-checkbox>
-        </div>
-        <div class="text-right">
-          <el-button type="primary" @click="handleClickSubmit">{{buttonText}}</el-button>
-        </div>
-      </form>
+      <el-table
+        :data="showPosts"
+        style="width: 100%"
+        @row-click="handleClick"
+        class="table"
+      >
+        <el-table-column
+          prop="title"
+          label="タイトル">
+          <div slot-scope="scope">
+            <!--<span>{{scope.row.title}}&nbsp;</span>-->
+            <span>
+              <i class="el-icon-star-on" />
+              <!--<span>{{scope.row.likes.length}}</span> -->
+            </span>
+          </div>
+        </el-table-column>
+        <el-table-column
+          prop="user.id"
+          label="投稿者"
+          width="180">
+        </el-table-column>
+        <el-table-column
+          prop="created_at"
+          label="投稿日時"
+          width="240">
+        </el-table-column>
+      </el-table>
     </el-card>
   </section>
 </template>
 
 <script>
-  import { mapGetters, mapActions } from 'vuex'
-  import Cookies from 'universal-cookie'
+  // import moment from '~/plugins/moment'
+  import { mapGetters } from 'vuex'
   export default {
-    asyncData({ redirect, store }) {
-      if (store.getters['user']) {
-        redirect('/posts/')
-      }
-      return {
-        isCreateMode: false,
-        formData: {
-          id: ''
-        }
-      }
+    async asyncData({ store }) {
+      await store.dispatch('posts/fetchPosts')
     },
     computed: {
-      buttonText() {
-        return this.isCreateMode ? '新規登録' : 'ログイン'
+      showPosts() {
+        // return this.posts.map(post => {
+        //   // post.created_at = moment(post.created_at).format('YYYY/MM/DD HH:mm:ss')
+        //   return post
+        // })
       },
-      ...mapGetters(['user'])
+      ...mapGetters('posts', ['posts'])
     },
     methods: {
-      async handleClickSubmit() {
-        const cookies = new Cookies()
-        if (this.isCreateMode) {
-          try {
-            await this.register({ ...this.formData })
-            this.$notify({
-              type: 'success',
-              title: 'アカウント作成完了',
-              message: `${this.formData.id} として登録しました`,
-              position: 'bottom-right',
-              duration: 1000
-            })
-            cookies.set('user', JSON.stringify(this.user))
-            this.$router.push('/posts/')
-          } catch (e) {
-            this.$notify.error({
-              title: 'アカウント作成失敗',
-              message: '既に登録されているか、不正なユーザー ID です',
-              position: 'bottom-right',
-              duration: 1000
-            })
-          }
-        } else {
-          try {
-            await this.login({ ...this.formData })
-            this.$notify({
-              type: 'success',
-              title: 'ログイン成功',
-              message: `${this.formData.id} としてログインしました`,
-              position: 'bottom-right',
-              duration: 1000
-            })
-            cookies.set('user', JSON.stringify(this.user))
-            this.$router.push('/posts/')
-          } catch (e) {
-            this.$notify.error({
-              title: 'ログイン失敗',
-              message: '不正なユーザー ID です',
-              position: 'bottom-right',
-              duration: 1000
-            })
-          }
-        }
-      },
-      ...mapActions(['login', 'register'])
+      handleClick(post) {
+        this.$router.push(`/posts/${post.id}`)
+      }
     }
   }
 </script>
 
-<style scoped>
-  .form-content {
-    margin: 16px 0;
+<style>
+  .posts-page .el-table__row {
+    cursor: pointer;
   }
 </style>
