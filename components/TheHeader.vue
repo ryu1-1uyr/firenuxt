@@ -22,11 +22,10 @@
 </template>
 
 <script>
-    export default {
-        name: "TheHeader"
+  import { mapGetters } from 'vuex'
+  export default {
+    computed: {
+      ...mapGetters(['user'])
     }
+  }
 </script>
-
-<style scoped>
-
-</style>
