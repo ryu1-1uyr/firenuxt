@@ -30,7 +30,7 @@
     </div>
     <br>
     <div>
-      <el-card v-for="user of userlist">
+      <el-card v-for="user of userlist" style="max-width: 800px">
 
         {{user}}
         <p>{{user.name}}</p>
