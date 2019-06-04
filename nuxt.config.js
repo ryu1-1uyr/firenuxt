@@ -2,6 +2,11 @@ import pkg from './package'
 
 export default {
   mode: 'universal',
+  router: {
+    middleware: [
+      'auth-cookie'
+    ]
+  },
 
   /*
   ** Headers of the page
@@ -27,7 +32,9 @@ export default {
   ** Global CSS
   */
   css: [
-    'element-ui/lib/theme-chalk/index.css'
+    'element-ui/lib/theme-chalk/reset.css',
+    'element-ui/lib/theme-chalk/index.css',
+    '~/assets/common.css'
   ],
 
   /*
