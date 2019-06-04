@@ -48,6 +48,7 @@ export default {
   ** Axios module configuration
   */
   axios: {
+      baseURL: 'https://nuxtonfirebaseapp.firebaseio.com'
     // See https://github.com/nuxt-community/axios-module#options
   },
 
@@ -56,7 +57,7 @@ export default {
   */
   build: {
     transpile: [/^element-ui/],
-    
+
     /*
     ** You can extend webpack config here
     */
