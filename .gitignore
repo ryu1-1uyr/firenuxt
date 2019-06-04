@@ -84,4 +84,5 @@ dist
 sw.*
 
 plugins/firebase.js
-plugins/firebase.js
+.plugins/firebase.js
+firebase.js
