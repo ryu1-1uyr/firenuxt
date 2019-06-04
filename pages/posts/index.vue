@@ -37,7 +37,7 @@
 </template>
 
 <script>
-  // import moment from '~/plugins/moment'
+  import moment from '~/plugins/moment'
   import { mapGetters } from 'vuex'
   export default {
     async asyncData({ store }) {
@@ -45,10 +45,10 @@
     },
     computed: {
       showPosts() {
-        // return this.posts.map(post => {
-        //   // post.created_at = moment(post.created_at).format('YYYY/MM/DD HH:mm:ss')
-        //   return post
-        // })
+        return this.posts.map(post => {
+          post.created_at = moment(post.created_at).format('YYYY/MM/DD HH:mm:ss')
+          return post
+        })
       },
       ...mapGetters('posts', ['posts'])
     },

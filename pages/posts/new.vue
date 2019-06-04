@@ -19,7 +19,7 @@
 
 <script>
   import { mapGetters, mapActions } from 'vuex'
-  
+
   export default {
     asyncData({ redirect, store }) {
       if (!store.getters['user']) {

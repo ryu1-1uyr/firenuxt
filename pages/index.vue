@@ -23,6 +23,7 @@
 <script>
   import { mapGetters, mapActions } from 'vuex'
   import Cookies from 'universal-cookie'
+
   export default {
     asyncData({ redirect, store }) {
       if (store.getters['user']) {
@@ -43,10 +44,13 @@
     },
     methods: {
       async handleClickSubmit() {
+        console.log("in handle click")
         const cookies = new Cookies()
         if (this.isCreateMode) {
+          console.log("on if")
           try {
             await this.register({ ...this.formData })
+            console.log(JSON.stringify(this.user))
             this.$notify({
               type: 'success',
               title: 'アカウント作成完了',
@@ -55,6 +59,7 @@
               duration: 1000
             })
             cookies.set('user', JSON.stringify(this.user))
+            console.log(JSON.stringify(this.user))
             this.$router.push('/posts/')
           } catch (e) {
             this.$notify.error({
