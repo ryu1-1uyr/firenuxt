@@ -80,14 +80,6 @@
     methods: {
 
       async getSampleData () {
-        // const getelement = this.$axios.$get('https://nuxtonfirebaseapp.firebaseio.com/user.json',{
-        //   headers: {
-        //     apiKey: "AIzaSyBE_wTS0kMYi_21K0O7s5HDl1BujTKTaRg",
-        //   },
-        //   data: {}
-        // })
-        // console.log(getelement)
-
         this.userlist = []
 
         const db =  firebase.firestore()

@@ -59,8 +59,8 @@
         db.collection("users").add({
           comment: this.formdata.comment,
           image: this.formdata.image,
-          name: 'ryu'
-        }) //データ追加のイメージ
+          name: 'ryu' //今は定数のユーザー名だけどそのうちなんとかする
+        })
       }
     }
 
