@@ -1,6 +1,6 @@
 # firenuxt
 
-> 
+> firebase and nuxt app
 
 ## Build Setup
 
