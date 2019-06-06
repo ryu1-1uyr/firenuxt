@@ -1,9 +1,12 @@
 <template>
+  <el-row class="postArea">
     <div style="flex: 1">
+      <el-col :span="24">
       <el-card>
         <h1>データをポストするための場所だよ</h1>
         <br>
         <img v-show="uploadedImage" :src="uploadedImage" />
+        <el-button @click="locationtest" >test get my locatrion </el-button>
 
         <form>
           <div class="form-content">
@@ -21,13 +24,16 @@
             {{formdata,uploadedImage}}
           </div>
         </form>
-
       </el-card>
+      </el-col>
     </div>
+  </el-row>
 </template>
 
 <script>
   import firebase from '~/plugins/firebase'
+  import geolocation from 'geolocation'
+
 
   export default {
     data(){
@@ -61,7 +67,13 @@
           image: this.formdata.image,
           name: 'ryu' //今は定数のユーザー名だけどそのうちなんとかする
         })
-      }
+      },
+      async locationtest () {
+        await geolocation.getCurrentPosition(function (err, position) {
+          if (err) {console.error((err))}
+          console.log(position)
+        })
+      },
     }
 
     }
