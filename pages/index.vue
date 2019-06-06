@@ -1,14 +1,19 @@
 <template>
   <div>
+
     <el-button type="primary" @click="getSampleData">refresh</el-button>
   <section class="container">
 
     <div>
+
       <el-card v-for="user of userlist" style="max-width: 800px">
+        <a :href="'details/'+user.latitude+','+user.longitude">
 
         <p>{{user}}</p>
         <p>{{user.name}}</p>
-        <img :src="user.image" alt="">
+        <img :src="user.image" >
+
+        </a>
       </el-card>
 
     </div>
@@ -18,10 +23,14 @@
 </template>
 
 <script>
+  import Postdata from '~/components/Postdata'
   import { mapGetters, mapActions } from 'vuex'
   import firebase from '~/plugins/firebase'
 
   export default {
+    components:{
+      Postdata
+    },
     asyncData({ redirect, store }) {
       if (store.getters['user']) {
         redirect('/posts/')
