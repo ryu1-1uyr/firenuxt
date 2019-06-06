@@ -41,7 +41,9 @@
         uploadedImage : '',
         formdata : {
           comment: '',
-          image: ''
+          image: '',
+          latitude: 0,
+          longitude: 0
         }
       }
     },
@@ -60,18 +62,35 @@
 
         reader.readAsDataURL(file);
       },
-      submitData () {
+      async submitData () {
+
         const db =  firebase.firestore()
-        db.collection("users").add({
-          comment: this.formdata.comment,
-          image: this.formdata.image,
-          name: 'ryu' //今は定数のユーザー名だけどそのうちなんとかする
+
+        await geolocation.getCurrentPosition( (err, position) => {
+          if (err) {console.error((err))}
+          const location = position.coords
+
+          this.formdata.latitude = location.latitude
+          this.formdata.longitude = location.longitude
+
+          db.collection("users").add({
+            comment: this.formdata.comment,
+            image: this.formdata.image,
+            latitude: location.latitude,
+            longitude: location.longitude,
+            name: 'ryu' //今は定数のユーザー名だけどそのうちなんとかする
+          })
         })
+
+
       },
       async locationtest () {
-        await geolocation.getCurrentPosition(function (err, position) {
+        await geolocation.getCurrentPosition( (err, position) => {
           if (err) {console.error((err))}
-          console.log(position)
+          const location = position.coords
+
+          this.formdata.latitude = location.latitude
+          this.formdata.longitude = location.longitude
         })
       },
     }
