@@ -1,49 +1,24 @@
 <template>
+  <div>
+    <el-button type="primary" @click="getSampleData">refresh</el-button>
   <section class="container">
-    <div>
-    <!--<el-card style="flex: 1">-->
-      <!--<div slot="header" class="clearfix">-->
-        <!--<span>ログイン</span>-->
-      <!--</div>-->
 
-      <!--&lt;!&ndash;<div @click="getSampleData">&ndash;&gt;-->
-        <!--&lt;!&ndash;<button>test GET mydata</button>&ndash;&gt;-->
-      <!--&lt;!&ndash;</div>&ndash;&gt;-->
-
-      <!--<form>-->
-        <!--<div class="form-content">-->
-          <!--<span>ユーザー ID</span>-->
-          <!--<el-input placeholder="" v-model="formData.id" />-->
-        <!--</div>-->
-        <!--<div class="form-content">-->
-          <!--<el-checkbox v-model="isCreateMode">アカウントを作成する</el-checkbox>-->
-        <!--</div>-->
-        <!--<div class="text-right">-->
-          <!--<el-button type="primary" @click="handleClickSubmit">{{buttonText}}</el-button>-->
-        <!--</div>-->
-      <!--</form>-->
-    <!--</el-card>-->
-
-      <div @click="getSampleData">
-      <button>test GET mydata</button>
-      </div>
-    </div>
-    <br>
     <div>
       <el-card v-for="user of userlist" style="max-width: 800px">
 
-        {{user}}
+        <p>{{user}}</p>
         <p>{{user.name}}</p>
+        <img :src="user.image" alt="">
       </el-card>
-      <!--<input type="none" value="{{loadList}}"  />-->
-      <p style='display: none'>{{loadList}}</p>
+
     </div>
+    <p style='display: none'>{{loadList}}</p>
   </section>
+  </div>
 </template>
 
 <script>
   import { mapGetters, mapActions } from 'vuex'
-  import Cookies from 'universal-cookie'
   import firebase from '~/plugins/firebase'
 
   export default {

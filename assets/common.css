@@ -49,3 +49,7 @@ html {
 p {
   margin: 16px 0;
 }
+
+.postArea {
+  padding: 20px 50px;
+}
