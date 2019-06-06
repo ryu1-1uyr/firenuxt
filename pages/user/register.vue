@@ -1,5 +1,7 @@
 <template>
-    
+  <div>
+    <p>this is register page </p>
+  </div>
 </template>
 
 <script>
