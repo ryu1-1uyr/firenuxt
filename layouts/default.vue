@@ -1,7 +1,7 @@
 <template>
   <div>
     <TheHeader />
-    <Postdata />
+    <!--<Postdata />-->
     <div class="wrapper">
       <nuxt class="container" />
     </div>
