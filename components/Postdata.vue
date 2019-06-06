@@ -6,7 +6,6 @@
         <h1>データをポストするための場所だよ</h1>
         <br>
         <img v-show="uploadedImage" :src="uploadedImage" />
-        <el-button @click="locationtest" >test get my locatrion </el-button>
 
         <form>
           <div class="form-content">
