@@ -27,18 +27,19 @@
   import Postdata from '~/components/Postdata'
   import { mapGetters, mapActions ,mapState } from 'vuex'
   import firebase from '~/plugins/firebase'
+  let tmp
 
   export default {
     components:{
       Postdata
     },
     asyncData({ store }) {
-      this.userlist = store.state.list
+      tmp = store.state.list
 
     },
     data (){
       return {
-        userlist:'',
+        userlist:tmp,
         counter :0
       }
     },
