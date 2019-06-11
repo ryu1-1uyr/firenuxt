@@ -80,8 +80,9 @@
             name: 'ryu' //今は定数のユーザー名だけどそのうちなんとかする
           })
         })
+        console.log("submit!")
         //闇の実装
-        location.href = "http://localhost:3000/"
+        // location.href = "http://localhost:3000/"
       },
       async locationtest () {
         await geolocation.getCurrentPosition( (err, position) => {

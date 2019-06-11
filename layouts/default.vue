@@ -1,6 +1,8 @@
 <template>
   <div>
     <TheHeader />
+    <el-button @click="testlog">test log</el-button>
+    <p style='display: none'>{{loadList}}</p>
     <!--<Postdata />-->
     <div class="wrapper">
       <nuxt class="container" />
