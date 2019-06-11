@@ -2,7 +2,9 @@
     <div class="map" style="margin-top: 20px">
 
       <div>
-        <div style="background-color: azure;width: 450px;height: 600px;margin-right: 50px">{{user||"からだよ"}}</div>
+        <div style="background-color: azure;width: 450px;height: 600px;margin-right: 50px">
+          {{this.$store.state.list[elementNumber]}}
+        </div>
         <button @click="test"></button>
       </div>
 
@@ -15,13 +17,19 @@
 
 <script>
     export default {
+      asyncData({ store }) {
+        let hoge = store.getters['getList']
+        console.log("a",hoge)
+
+      },
       data () {
         return {
           basedata:`https://maps.google.co.jp/maps?output=embed&t=m&hl=ja&z=18&ll=${this.$nuxt.$route.params.location.split(',')[0]},${this.$nuxt.$route.params.location.split(',')[1]}`,
           location: {
             latitude: this.$nuxt.$route.params.location.split(',')[0] ,
             longitude: this.$nuxt.$route.params.location.split(',')[1]
-          }
+          },
+          elementNumber:this.$nuxt.$route.params.location.split(',')[2]
         }
       },
       methods:{
