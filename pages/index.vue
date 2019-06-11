@@ -2,12 +2,13 @@
   <div>
 
     <el-button type="primary" @click="getSampleData">refresh</el-button>
+    <!--<el-button @click="testlog">test log</el-button>-->
   <section class="container">
 
     <div>
 
       <el-card v-for="user of userlist" style="max-width: 800px">
-        <a :href="'details/'+user.latitude+','+user.longitude" >
+        <a :href="'details/'+user.latitude+','+user.longitude+','+counter++" >
 
         <p>{{user}}</p>
         <p>{{user.name}}</p>
