@@ -18,51 +18,57 @@
       </el-card>
 
     </div>
-    <p style='display: none'>{{loadList}}</p>
+    <!--<p style='display: none'>{{loadList}}</p>-->
   </section>
   </div>
 </template>
 
 <script>
   import Postdata from '~/components/Postdata'
-  import { mapGetters, mapActions } from 'vuex'
+  import { mapGetters, mapActions ,mapState } from 'vuex'
   import firebase from '~/plugins/firebase'
 
   export default {
     components:{
       Postdata
     },
-    asyncData({ redirect, store }) {
-      if (store.getters['user']) {
-        redirect('/posts/')
-      }
-      return {
-        isCreateMode: false,
-        formData: {
-          id: ''
-        }
-      }
+    asyncData({ store }) {
+      this.userlist = store.state.list
+
     },
     data (){
       return {
-        userlist:[]
+        userlist:'',
+        counter :0
       }
     },
+    computed: mapState(['user']),
     computed: {
+
       buttonText() {
         return this.isCreateMode ? '新規登録' : 'ログイン'
       },
-      loadList () {
-        const db =  firebase.firestore()
-        db.collection("users").get().then((querySnapshot) => {
-          querySnapshot.forEach((doc) => {
-            this.userlist.push(doc.data());
-          });
-        })
-      },
-      ...mapGetters(['user'])
+      // loadList () {
+      //   const db =  firebase.firestore()
+      //   db.collection("users").get().then((querySnapshot) => {
+      //     querySnapshot.forEach((doc) => {
+      //       this.userlist.push(doc.data());
+      //     });
+      //     // this.$store.commit('setList', this.userlist )
+      //   })
+      //
+      // },
+      ...mapGetters(['user']),
     },
     methods: {
+      // testlog(){
+      //
+      //   this.$store.commit('listElement/addList',{element:this.userlist})
+      //
+      //   let test = this.$store.state
+      //   console.log(test)
+      //
+      // },
 
       async getSampleData () {
         this.userlist = []
@@ -132,7 +138,7 @@
           }
         }
       },
-      ...mapActions(['login', 'register'])
+      ...mapActions(['login', 'register','setUser'])
     }
   }
 </script>
