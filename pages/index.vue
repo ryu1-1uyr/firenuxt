@@ -7,7 +7,7 @@
     <div>
 
       <el-card v-for="user of userlist" style="max-width: 800px">
-        <a :href="'details/'+user.latitude+','+user.longitude">
+        <a :href="'details/'+user.latitude+','+user.longitude" >
 
         <p>{{user}}</p>
         <p>{{user.name}}</p>

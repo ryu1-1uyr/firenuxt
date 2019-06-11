@@ -1,8 +1,9 @@
 <template>
-    <div>
+    <div class="map" style="margin-top: 20px">
 
       <div>
-        <div style="background-color: black;width: 450px;height: 600px">hoge</div>
+        <div style="background-color: azure;width: 450px;height: 600px;margin-right: 50px">{{user||"からだよ"}}</div>
+        <button @click="test"></button>
       </div>
 
       <div>
@@ -23,10 +24,13 @@
           }
         }
       },
+      methods:{
+        test(){
+        }
+      },
         name: "_location"
     }
 </script>
 
-<style scoped>
-
+<style>
 </style>
