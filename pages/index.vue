@@ -16,7 +16,7 @@
 
         </a>
       </el-card>
-
+      <p style="display: none">{{counter=0}}</p>
     </div>
     <!--<p style='display: none'>{{loadList}}</p>-->
   </section>
