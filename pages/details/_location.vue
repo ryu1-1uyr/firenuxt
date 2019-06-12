@@ -5,7 +5,6 @@
         <div style="background-color: azure;width: 450px;height: 600px;margin-right: 50px">
           {{this.$store.state.list[elementNumber]}}
         </div>
-        <button @click="test"></button>
       </div>
 
       <div>
