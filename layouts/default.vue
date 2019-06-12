@@ -28,9 +28,6 @@
     },
     methods: {
       testlog(){
-
-        // this.$store.commit('listElement/addList',{element:this.userlist})
-
         let test = this.$store.state.list
         console.log(test)
 
