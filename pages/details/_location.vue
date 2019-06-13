@@ -1,9 +1,14 @@
 <template>
     <div class="map" style="margin-top: 20px">
+      <button @click="test">{{test}}</button>
 
       <div>
         <div style="background-color: azure;width: 450px;height: 600px;margin-right: 50px">
-          {{this.$store.state.list[elementNumber]}}
+          <span v-if="JSON.stringify(this.$store.state.list[this.elementNumber])">
+          <p>{{JSON.stringify(this.$store.state.list[this.elementNumber]['comment'])}}</p>
+            <p> {{JSON.stringify(this.$store.state.list[this.elementNumber]['image'])}}</p>
+            <img v-if="detailsJSON" :src="detailsJSON.image" alt="うつってへんよ">
+            </span>
         </div>
       </div>
 
@@ -28,11 +33,14 @@
             latitude: this.$nuxt.$route.params.location.split(',')[0] ,
             longitude: this.$nuxt.$route.params.location.split(',')[1]
           },
-          elementNumber:this.$nuxt.$route.params.location.split(',')[2]
+          elementNumber:this.$nuxt.$route.params.location.split(',')[2],
+          detailsJSON: {}
         }
       },
       methods:{
         test(){
+          this.detailsJSON = JSON.stringify(this.$store.state.list[this.elementNumber])
+          console.log(this.detailsJSON)
         }
       },
         name: "_location"
