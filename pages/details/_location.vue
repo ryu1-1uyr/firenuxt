@@ -1,14 +1,17 @@
 <template>
     <div class="map" style="margin-top: 20px">
-      <button @click="test">{{test}}</button>
+      <!--<button @click="test">refresh</button>-->
 
       <div>
         <div style="background-color: azure;width: 450px;height: 600px;margin-right: 50px">
           <span v-if="detailsJSON">
-          <p>{{JSON.stringify(detailsJSON['comment'])}}</p>
+            <p>{{JSON.stringify(detailsJSON['comment'])}}</p>
             <p>latitude : {{detailsJSON.latitude}} , longitude : {{detailsJSON.longitude}}</p>
             <img v-if="detailsJSON" :src="detailsJSON.image" alt="うつってへんよ">
-            </span>
+          </span>
+          <span v-else>
+            <button @click="test">refresh</button>
+          </span>
         </div>
       </div>
 
@@ -48,7 +51,7 @@
         test(){
           // this.detailsJSON = JSON.stringify(this.$store.state.list[this.elementNumber])
           console.log(this.detailsJSON,this.$store.state.list,this.$store.state.list[this.elementNumber])
-          this.detailsJSON = this.$store.state.list[this.elementNumber] 
+          this.detailsJSON = this.$store.state.list[this.elementNumber]
         }
       },
         name: "_location"

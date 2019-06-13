@@ -1,13 +1,11 @@
 <template>
   <div>
-
     <el-button type="primary" @click="getSampleData">refresh</el-button>
+
     <!--<el-button @click="testlog">test log</el-button>-->
   <section class="container">
 
-    <div>
-      <p>{{userList}}</p>
-
+    <div v-if="userlist">
       <el-card v-for="user of userlist" style="max-width: 800px">
         <a :href="'details/'+user.latitude+','+user.longitude+','+counter++" >
 
@@ -18,6 +16,9 @@
         </a>
       </el-card>
       <p style="display: none">{{counter=0}}</p>
+    </div>
+    <div v-else>
+      <el-button type="primary" @click="getSampleData">refresh</el-button>
     </div>
     <!--<p style='display: none'>{{loadList}}</p>-->
   </section>
@@ -33,7 +34,7 @@
   export default {
     props:{
       userList:{
-        default:'-=-=-'
+        default:['-=-=-=-']
       }
 
     },
