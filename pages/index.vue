@@ -6,6 +6,7 @@
   <section class="container">
 
     <div>
+      <p>{{userList}}</p>
 
       <el-card v-for="user of userlist" style="max-width: 800px">
         <a :href="'details/'+user.latitude+','+user.longitude+','+counter++" >
@@ -30,6 +31,12 @@
   let tmp
 
   export default {
+    props:{
+      userList:{
+        default:'-=-=-'
+      }
+
+    },
     components:{
       Postdata
     },
