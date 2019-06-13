@@ -5,7 +5,7 @@
     <p style='display: none'>{{loadList}}</p>
     <!--<Postdata />-->
     <div class="wrapper">
-      <nuxt class="container" />
+      <nuxt class="container" :userList="userlist" />
     </div>
   </div>
 </template>
