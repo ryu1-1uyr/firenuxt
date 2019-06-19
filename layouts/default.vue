@@ -1,6 +1,7 @@
 <template>
   <div>
     <TheHeader />
+    <div id="dummyHeader">ダミーのヘッダーです</div>
     <el-button @click="testlog">test log</el-button>
     <p style='display: none'>{{loadList}}</p>
     <!--<Postdata />-->

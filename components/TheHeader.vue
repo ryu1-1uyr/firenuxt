@@ -1,5 +1,5 @@
 <template>
-  <el-menu mode="horizontal" :router="true">
+  <el-menu id="theheader" mode="horizontal" :router="true">
 
       <el-menu-item index="1" style="pointer-events:none;" :route="{ path: '/' }">
         PBL のアプリケーション
