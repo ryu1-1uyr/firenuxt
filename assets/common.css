@@ -13,11 +13,12 @@ html {
   /*margin: 0;*/
 /*}*/
 
-/*.wrapper {*/
-  /*background: #FAFAFA;*/
-  /*width: 100%;*/
-  /*min-height: calc(100vh - 61px);*/
-/*}*/
+.wrapper {
+  padding-top: 10px;
+  background: #FAFAFA;
+  width: 100%;
+  min-height: calc(100vh - 61px);
+}
 
 /*.el-card {*/
   /*flex: 1;*/
@@ -59,18 +60,19 @@ html {
 /*}*/
 
 #mobileheader{
-  display: none;
+  display: inline-flex;
+  margin-bottom: 5px;
 }
 
 .headerscontainer {
   display: flex;
 }
 
-@media (max-width: 680px) {
-  #theheader{
-    display: none;
-  }
-  #mobileheader{
-    display: inline-flex;
-  }
-}
+/*@media (max-width: 680px) {*/
+  /*#theheader{*/
+    /*display: none;*/
+  /*}*/
+  /*#mobileheader{*/
+    /*display: inline-flex;*/
+  /*}*/
+/*}*/

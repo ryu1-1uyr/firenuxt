@@ -1,7 +1,7 @@
 <template>
   <div>
     <!--<TheHeader />-->
-    <MobileHeader />
+    <MobileHeader style="margin-bottom: 10px" />
     <el-button @click="testlog">test log</el-button>
     <p style='display: none'>{{loadList}}</p>
     <!--<Postdata />-->
