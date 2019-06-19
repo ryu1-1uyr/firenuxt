@@ -1,22 +1,22 @@
-<template>
-  <el-row class="postArea">
-    <div style="flex: 1">
-      <el-col :span="24">
-      <el-card>
+<template >
+  <div>
+      <el-card style="max-width: 355px ;margin-top: 35px" >
+
         <h1>データをポストするための場所だよ</h1>
+
         <br>
-        <img v-show="uploadedImage" :src="uploadedImage" />
+        <img v-show="uploadedImage" :src="uploadedImage" style="max-width: 300px" />
 
         <form>
-          <div class="form-content">
+          <div class="a">
             <span>comment</span><br>
             <el-input placeholder="comment" v-model="formdata.comment" />
           </div>
           <br>
-          <div class="form-content">
+          <div class="i">
             <input type="file" v-on:change="onFileChange">
           </div>
-          <div class="text-right">
+          <div class="u">
             <el-button type="primary" @click="submitData" >submit</el-button>
           </div>
           <div>
@@ -24,9 +24,7 @@
           </div>
         </form>
       </el-card>
-      </el-col>
-    </div>
-  </el-row>
+  </div>
 </template>
 
 <script>
@@ -98,6 +96,3 @@
     }
 </script>
 
-<style scoped>
-
-</style>
