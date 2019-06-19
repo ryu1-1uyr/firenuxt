@@ -5,18 +5,19 @@
         <p>{{tmp}}</p>
         <div >
           <span v-if="detailsJSON">
-            <p>{{detailsJSON.comment}}</p>
-            <p>latitude : {{detailsJSON.latitude}} , longitude : {{detailsJSON.longitude}}</p>
+            <p> {{detailsJSON.comment}}</p>
+            <p> latitude : {{detailsJSON.latitude}} </p>
+            <p> longitude : {{detailsJSON.longitude}}</p>
             <img v-if="detailsJSON" :src="detailsJSON.image" alt="noimage">
           </span>
           <span v-else>
-            <button @click="test">refresh</button>
+            <el-button @click="test">refresh</el-button>
           </span>
         </div>
       </div>
 
       <div>
-        <iframe :src=basedata width="900" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
+        <iframe :src=basedata id="map" frameborder="0" style="border:0" allowfullscreen></iframe>
       </div>
 
     </div>

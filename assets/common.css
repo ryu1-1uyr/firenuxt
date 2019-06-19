@@ -82,6 +82,13 @@ html {
 
 }
 
+#map {
+  width: 100% ;
+  height: auto ;
+  min-height: 300px;
+  margin-top: 50px;
+}
+
 /*@media (max-width: 680px) {*/
   /*#theheader{*/
     /*display: none;*/
