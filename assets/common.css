@@ -73,6 +73,15 @@ html {
   justify-content: flex-end;
 }
 
+.details{
+  background-color: azure;
+  width: auto;
+  min-height: 150px ;
+  margin: 10px ;
+  padding-bottom: 20px;
+
+}
+
 /*@media (max-width: 680px) {*/
   /*#theheader{*/
     /*display: none;*/

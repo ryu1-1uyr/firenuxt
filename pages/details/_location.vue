@@ -1,7 +1,7 @@
 <template>
     <div class="map" style="margin-top: 20px">
 
-      <div>
+      <div class="details">
         <p>{{tmp}}</p>
         <div >
           <span v-if="detailsJSON">
