@@ -4,7 +4,6 @@
       <el-button style="margin-bottom: 10px; text-align: center" type="primary" @click="getSampleData">refresh</el-button>
     </div>
 
-    <!--<el-button @click="testlog">test log</el-button>-->
   <section class="container">
 
     <div v-if="userlist">
@@ -22,7 +21,6 @@
     <div v-else>
       <el-button type="primary" @click="getSampleData">refresh</el-button>
     </div>
-    <!--<p style='display: none'>{{loadList}}</p>-->
   </section>
   </div>
 </template>
@@ -53,28 +51,9 @@
       buttonText() {
         return this.isCreateMode ? '新規登録' : 'ログイン'
       },
-      // loadList () {
-      //   const db =  firebase.firestore()
-      //   db.collection("users").get().then((querySnapshot) => {
-      //     querySnapshot.forEach((doc) => {
-      //       this.userlist.push(doc.data());
-      //     });
-      //     // this.$store.commit('setList', this.userlist )
-      //   })
-      //
-      // },
       ...mapGetters(['user']),
     },
     methods: {
-
-      // testlog(){
-      //
-      //   this.$store.commit('listElement/addList',{element:this.userlist})
-      //
-      //   let test = this.$store.state
-      //   console.log(test)
-      //
-      // },
 
       async getSampleData () {
         this.userlist = []
@@ -86,22 +65,14 @@
           });
         })
 
-        // db.collection("users").add({
-        //   first: "Ada",
-        //   last: "Lovelace",
-        //   born: 1815
-        // }) データ追加のイメージ
-
       },
 
       async handleClickSubmit() {
         console.log("in handle click")
-        // const cookies = new Cookies()
         if (this.isCreateMode) {
           console.log("on if")
           try {
-            // await this.register({ ...this.formData })
-            // console.log(JSON.stringify(this.user))
+
             this.$notify({
               type: 'success',
               title: 'アカウント作成完了',
@@ -109,8 +80,7 @@
               position: 'bottom-right',
               duration: 1000
             })
-            // cookies.set('user', JSON.stringify(this.user))
-            // console.log(JSON.stringify(this.user))
+
             this.$router.push('/posts/')
           } catch (e) {
             this.$notify.error({
@@ -132,7 +102,6 @@
               position: 'bottom-right',
               duration: 1000
             })
-            // cookies.set('user', JSON.stringify(this.user))
             this.$router.push('/posts/')
           } catch (e) {
             this.$notify.error({

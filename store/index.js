@@ -1,24 +1,5 @@
 import moment from '~/plugins/moment'
 
-// export const state = () => ({
-//   isLoggedIn: false,
-//   user: null
-// })
-
-// export const getters = {
-//   isLoggedIn: state => state.isLoggedIn,
-//   user: state => state.user
-// }
-
-// export const mutations = {
-//   setUser(state, { user }) {
-//     state.user = user
-//   },
-//   updateUser(state, { user }) {
-//     state.user = user
-//   },
-// }
-
 export const state = () => ({
   list: {},
   user: {}

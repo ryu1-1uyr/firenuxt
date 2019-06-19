@@ -14,10 +14,8 @@
           prop="title"
           label="タイトル">
           <div slot-scope="scope">
-            <!--<span>{{scope.row.title}}&nbsp;</span>-->
             <span>
               <i class="el-icon-star-on" />
-              <!--<span>{{scope.row.likes.length}}</span> -->
             </span>
           </div>
         </el-table-column>

@@ -30,14 +30,7 @@
       async asyncData({ store ,route }) {
         tmp = await store.state.list[route.params.location.split(',')[2]]
         console.log(tmp,route.params.location.split(',')[2])
-        // store.commit('setUser',tmp)
-
       },
-      // asyncData({ store }) {
-      //   let hoge = store.getters['getList']
-      //   console.log("a",hoge)
-      //
-      // },
       data () {
         return {
           basedata:`https://maps.google.co.jp/maps?output=embed&t=m&hl=ja&z=18&ll=${this.$nuxt.$route.params.location.split(',')[0]},${this.$nuxt.$route.params.location.split(',')[1]}`,
@@ -60,7 +53,6 @@
       methods:{
 
         test(){
-          // this.detailsJSON = JSON.stringify(this.$store.state.list[this.elementNumber])
           console.log(this.detailsJSON,this.$store.state.list,this.$store.state.list[this.elementNumber])
           this.detailsJSON = this.$store.state.list[this.elementNumber]
         }

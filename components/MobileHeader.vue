@@ -1,5 +1,4 @@
 <template>
-  <!--<div id="mobileheader">-->
     <el-menu class="mobileheader" mode="horizontal" :router="true">
 
       <el-menu-item index="1"  :route="{ path: '/' }" >
@@ -11,7 +10,6 @@
       </el-menu-item>
 
     </el-menu>
-  <!--</div>-->
 </template>
 
 <script>

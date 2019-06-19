@@ -1,10 +1,7 @@
 <template>
   <div>
-    <!--<TheHeader />-->
     <MobileHeader style="margin-bottom: 10px" />
-    <el-button @click="testlog">test log</el-button>
     <p style='display: none'>{{loadList}}</p>
-    <!--<Postdata />-->
     <div class="wrapper">
       <nuxt class="container" :userList="userlist" />
     </div>
@@ -31,11 +28,6 @@
       MobileHeader
     },
     methods: {
-      testlog(){
-        let test = this.$store.state.list
-        console.log(test)
-
-      },
     },
     computed: {
 
