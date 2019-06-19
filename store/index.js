@@ -21,11 +21,14 @@ import moment from '~/plugins/moment'
 
 export const state = () => ({
   list: {},
-  user: null
+  user: {}
 })
 
 export const mutations = {
   setList (state, list) {
+    state.list = list
+  },
+  setUser (state, list) {
     state.list = list
   }
 }

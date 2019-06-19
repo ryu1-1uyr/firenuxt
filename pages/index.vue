@@ -1,6 +1,8 @@
 <template>
   <div>
-    <el-button type="primary" @click="getSampleData">refresh</el-button>
+    <div class="inline">
+      <el-button style="margin-bottom: 10px; text-align: center" type="primary" @click="getSampleData">refresh</el-button>
+    </div>
 
     <!--<el-button @click="testlog">test log</el-button>-->
   <section class="container">
@@ -32,12 +34,6 @@
   let tmp
 
   export default {
-    props:{
-      userList:{
-        default:['-=-=-=-']
-      }
-
-    },
     components:{
       Postdata
     },
@@ -70,6 +66,7 @@
       ...mapGetters(['user']),
     },
     methods: {
+
       // testlog(){
       //
       //   this.$store.commit('listElement/addList',{element:this.userlist})
