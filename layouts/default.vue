@@ -28,11 +28,6 @@
       MobileHeader
     },
     methods: {
-      testlog(){
-        let test = this.$store.state.list
-        console.log(test)
-
-      },
     },
     computed: {
 
