@@ -82,15 +82,6 @@
         //闇の実装
         // location.href = "http://localhost:3000/"
       },
-      async locationtest () {
-        await geolocation.getCurrentPosition( (err, position) => {
-          if (err) {console.error((err))}
-          const location = position.coords
-
-          this.formdata.latitude = location.latitude
-          this.formdata.longitude = location.longitude
-        })
-      },
     }
 
     }
