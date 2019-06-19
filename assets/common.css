@@ -68,6 +68,11 @@ html {
   display: flex;
 }
 
+.inline {
+  display: inline-flex;
+  justify-content: flex-end;
+}
+
 /*@media (max-width: 680px) {*/
   /*#theheader{*/
     /*display: none;*/

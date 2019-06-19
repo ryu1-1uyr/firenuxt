@@ -1,6 +1,8 @@
 <template>
   <div>
-    <el-button type="primary" @click="getSampleData">refresh</el-button>
+    <div class="inline">
+      <el-button style="margin-bottom: 10px; text-align: center" type="primary" @click="getSampleData">refresh</el-button>
+    </div>
 
     <!--<el-button @click="testlog">test log</el-button>-->
   <section class="container">
