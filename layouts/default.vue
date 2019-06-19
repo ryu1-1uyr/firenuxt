@@ -1,7 +1,7 @@
 <template>
   <div>
-    <TheHeader />
-    <div id="dummyHeader">ダミーのヘッダーです</div>
+    <!--<TheHeader />-->
+    <MobileHeader />
     <el-button @click="testlog">test log</el-button>
     <p style='display: none'>{{loadList}}</p>
     <!--<Postdata />-->
@@ -13,6 +13,7 @@
 
 <script>
   import TheHeader from '~/components/TheHeader.vue'
+  import MobileHeader from '~/components/MobileHeader.vue'
   import Postdata from '~/components/Postdata'
   import firebase from '~/plugins/firebase'
   import { mapGetters, mapActions ,mapState } from 'vuex'
@@ -26,7 +27,8 @@
     },
     components: {
       TheHeader,
-      Postdata
+      Postdata,
+      MobileHeader
     },
     methods: {
       testlog(){
