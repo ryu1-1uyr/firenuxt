@@ -1,7 +1,6 @@
 <template>
   <div>
     <MobileHeader style="margin-bottom: 10px" />
-    <el-button @click="testlog">test log</el-button>
     <p style='display: none'>{{loadList}}</p>
     <div class="wrapper">
       <nuxt class="container" :userList="userlist" />
