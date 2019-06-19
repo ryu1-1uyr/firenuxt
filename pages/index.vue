@@ -32,12 +32,6 @@
   let tmp
 
   export default {
-    props:{
-      userList:{
-        default:['-=-=-=-']
-      }
-
-    },
     components:{
       Postdata
     },
@@ -70,6 +64,7 @@
       ...mapGetters(['user']),
     },
     methods: {
+
       // testlog(){
       //
       //   this.$store.commit('listElement/addList',{element:this.userlist})
