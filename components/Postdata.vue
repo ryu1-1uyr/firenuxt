@@ -19,9 +19,6 @@
           <div class="u">
             <el-button type="primary" @click="submitData" >submit</el-button>
           </div>
-          <div>
-            {{formdata,uploadedImage}}
-          </div>
         </form>
       </el-card>
   </div>
