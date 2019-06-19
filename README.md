@@ -1,7 +1,8 @@
 # firenuxt
 
-> firebase and nuxt app
-ふぁいあべーすとなくすとつかったPBLでつかいたいあぷり
+## こちらいわゆるdevelopな環境。
+テストログ吐かせたり、送信するjsonがそのまま見れたりする
+
 
 ## Build Setup
 
@@ -22,4 +23,8 @@ $ yarn run generate
 https://www.npmjs.com/package/geolocation
 https://element.eleme.io/
 ```
+
+/plugins/firebase.js　が入ってないです
+
+動かしたい人は[僕](https://twitter.com/Ryu1__1uyR)に言ってください
 
