@@ -3,7 +3,7 @@
 
       <div>
         <p>{{tmp}}</p>
-        <div style="background-color: azure;width: 450px;height: 600px;margin-right: 50px">
+        <div >
           <span v-if="detailsJSON">
             <p>{{detailsJSON.comment}}</p>
             <p>latitude : {{detailsJSON.latitude}} , longitude : {{detailsJSON.longitude}}</p>
