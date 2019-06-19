@@ -1,6 +1,5 @@
 <template>
     <div class="map" style="margin-top: 20px">
-      <!--<button @click="test">refresh</button>-->
 
       <div>
         <p>{{tmp}}</p>
