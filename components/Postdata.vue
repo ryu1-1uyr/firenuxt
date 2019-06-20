@@ -1,9 +1,15 @@
 <template >
   <div>
-      <el-card style="max-width: 355px ;margin-top: 35px" >
+      <el-card style="max-width: 355px ;margin-top: 35px"  >
 
-        <h1>データをポストするための場所だよ</h1>
+        <h2>データをポストするための場所だよ</h2>
 
+        <div class="spinner" v-if="uploadFrag">
+          <div class="double-bounce1"></div>
+          <div class="double-bounce2"></div>
+        </div>
+
+        <div  v-else>
         <br>
         <img v-show="uploadedImage" :src="uploadedImage" style="max-width: 300px" />
 
@@ -20,7 +26,11 @@
             <el-button type="primary" @click="submitData" >submit</el-button>
           </div>
         </form>
+        </div>
       </el-card>
+
+
+
   </div>
 </template>
 
@@ -32,6 +42,7 @@
   export default {
     data(){
       return {
+        uploadFrag: false,
         uploadedImage : '',
         formdata : {
           comment: '',
@@ -57,6 +68,7 @@
         reader.readAsDataURL(file);
       },
       async submitData () {
+        this.uploadFrag = true
 
         const db =  firebase.firestore()
 
@@ -80,7 +92,13 @@
         const time = setInterval (_=>{
           console.log(a++);
           if(a==300){
-            location.href = "http://localhost:3000/"
+            this.uploadFrag = false
+            this.uploadedImage = ''
+            this.formdata.comment = ''
+            this.formdata.image = ''
+            this.formdata.latitude = 0
+            this.formdata.longitude = 0
+
             clearInterval(time)
           }});
 

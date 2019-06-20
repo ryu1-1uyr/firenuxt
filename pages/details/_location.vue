@@ -8,11 +8,24 @@
             <p> {{detailsJSON.comment}}</p>
             <p> latitude : {{detailsJSON.latitude}} </p>
             <p> longitude : {{detailsJSON.longitude}}</p>
-            <img v-if="detailsJSON.image" :src="detailsJSON.image" >
+            <img v-if="detailsJSON.image" :src="detailsJSON.image" style="max-width: 300px" >
             <small v-else> no image </small>
           </span>
           <span v-else>
             <el-button @click="test">refresh</el-button>
+
+            <div class="sk-cube-grid">
+              <div class="sk-cube sk-cube1"></div>
+              <div class="sk-cube sk-cube2"></div>
+              <div class="sk-cube sk-cube3"></div>
+              <div class="sk-cube sk-cube4"></div>
+              <div class="sk-cube sk-cube5"></div>
+              <div class="sk-cube sk-cube6"></div>
+              <div class="sk-cube sk-cube7"></div>
+              <div class="sk-cube sk-cube8"></div>
+              <div class="sk-cube sk-cube9"></div>
+            </div>
+
           </span>
         </div>
       </div>
