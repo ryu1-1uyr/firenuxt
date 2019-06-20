@@ -43,12 +43,15 @@
         }
       },
       mounted(){
-        this.$nextTick(() => {
-          this.detailsJSON = this.$store.state.list[this.elementNumber]
-          console.log("in mounted",this.detailsJSON)
-          // ビュー全体がレンダリングされた後に実行
+        this.$nextTick(()=>{
+          let a=0
+          const time = setInterval (_=>{
+            console.log(a++);
+            if(a==300){
+              this.test()
+              clearInterval(time)
+          }});
         })
-
       },
       methods:{
 
