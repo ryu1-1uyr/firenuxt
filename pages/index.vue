@@ -7,7 +7,7 @@
   <section class="container">
 
     <div v-if="userlist">
-      <el-card v-for="user of userlist" style="max-width: 800px">
+      <el-card v-for="user of userlist" style="max-width: 800px;margin-bottom: 10px">
         <a :href="'details/'+user.latitude+','+user.longitude+','+counter++" >
           <p>{{user.name}}</p>
           <p> comment : {{user.comment}}</p>
