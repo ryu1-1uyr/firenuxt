@@ -9,11 +9,12 @@
     <div v-if="userlist">
       <el-card v-for="user of userlist" style="max-width: 800px">
         <a :href="'details/'+user.latitude+','+user.longitude+','+counter++" >
-
-        <p>{{user}}</p>
-        <p>{{user.name}}</p>
-        <img :src="user.image" >
-
+          <p>{{user.name}}</p>
+          <p> comment : {{user.comment}}</p>
+          <p> latitude : {{user.latitude}} </p>
+          <p> longitude : {{user.longitude}}</p>
+          <img v-if="user.image" :src="user.image" style="max-width: 300px" >
+          <small v-else> no image </small>
         </a>
       </el-card>
       <p style="display: none">{{counter=0}}</p>
