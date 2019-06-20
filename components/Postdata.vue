@@ -74,17 +74,7 @@
             longitude: location.longitude,
             name: 'ryu' //今は定数のユーザー名だけどそのうちなんとかする
           })
-        });
-
-        let a=0
-        const time = setInterval (_=>{
-          console.log(a++);
-          if(a==300){
-            location.href = "http://localhost:3000/"
-            clearInterval(time)
-          }});
-
-
+        })
         console.log("submit!")
         //闇の実装
         // location.href = "http://localhost:3000/"
