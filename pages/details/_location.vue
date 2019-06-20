@@ -12,8 +12,8 @@
             <small v-else> no image </small>
           </span>
           <span v-else>
-            <el-button @click="test">refresh</el-button>
 
+            <p style="text-align: center">^o^</p>
             <div class="sk-cube-grid">
               <div class="sk-cube sk-cube1"></div>
               <div class="sk-cube sk-cube2"></div>
