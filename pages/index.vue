@@ -56,13 +56,13 @@
     },
     mounted(){
       this.$nextTick(()=>{
-        // let a=0
-        // const time = setInterval (_=>{
-        //   console.log(a++);
-        //   if(a==300){
+        let a=0
+        const time = setInterval (_=>{
+          console.log(a++);
+          if(a==300){
             this.getSampleData()
-        //     clearInterval(time)
-          // }});
+            clearInterval(time)
+          }});
       })
     },
     methods: {
