@@ -21,6 +21,19 @@
     </div>
     <div v-else>
       <el-button type="primary" @click="getSampleData">refresh</el-button>
+
+      <div class="sk-cube-grid">
+        <div class="sk-cube sk-cube1"></div>
+        <div class="sk-cube sk-cube2"></div>
+        <div class="sk-cube sk-cube3"></div>
+        <div class="sk-cube sk-cube4"></div>
+        <div class="sk-cube sk-cube5"></div>
+        <div class="sk-cube sk-cube6"></div>
+        <div class="sk-cube sk-cube7"></div>
+        <div class="sk-cube sk-cube8"></div>
+        <div class="sk-cube sk-cube9"></div>
+      </div>
+
     </div>
   </section>
   </div>
@@ -55,15 +68,26 @@
       ...mapGetters(['user']),
     },
     mounted(){
-      this.$nextTick(()=>{
-        let a=0
-        const time = setInterval (_=>{
-          console.log(a++);
-          if(a==300){
-            this.getSampleData()
-            clearInterval(time)
-          }});
-      })
+      if(this.userlist !== null||undefined){
+        this.$nextTick(()=>{
+          let a=0
+          const time = setInterval (_=>{
+            console.log(a++);
+            if(a==300){
+              this.getSampleData()
+              clearInterval(time)
+            }});
+        })
+      }else {
+        this.userlist = []
+
+        const db =  firebase.firestore()
+        db.collection("users").get().then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            this.userlist.push(doc.data());
+          });
+        })
+      }
     },
     methods: {
 
