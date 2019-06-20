@@ -92,7 +92,13 @@
         const time = setInterval (_=>{
           console.log(a++);
           if(a==300){
-            location.href = "http://localhost:3000/"
+            this.uploadFrag = false
+            this.uploadedImage = ''
+            this.formdata.comment = ''
+            this.formdata.image = ''
+            this.formdata.latitude = 0
+            this.formdata.longitude = 0
+
             clearInterval(time)
           }});
 
