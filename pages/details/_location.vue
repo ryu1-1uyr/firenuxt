@@ -8,7 +8,8 @@
             <p> {{detailsJSON.comment}}</p>
             <p> latitude : {{detailsJSON.latitude}} </p>
             <p> longitude : {{detailsJSON.longitude}}</p>
-            <img v-if="detailsJSON" :src="detailsJSON.image" alt="noimage">
+            <img v-if="detailsJSON.image" :src="detailsJSON.image" >
+            <small v-else> no image </small>
           </span>
           <span v-else>
             <el-button @click="test">refresh</el-button>
