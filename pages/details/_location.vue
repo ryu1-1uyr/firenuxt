@@ -48,6 +48,7 @@
       data () {
         return {
           basedata:`https://maps.google.co.jp/maps?output=embed&t=m&hl=ja&z=18&ll=${this.$nuxt.$route.params.location.split(',')[0]},${this.$nuxt.$route.params.location.split(',')[1]}`,
+          loadFlag:false,
           location: {
             latitude: this.$nuxt.$route.params.location.split(',')[0] ,
             longitude: this.$nuxt.$route.params.location.split(',')[1]
@@ -62,7 +63,8 @@
           const time = setInterval (_=>{
             console.log(a++);
             if(a==300){
-              this.test()
+              this.loadFlag = true
+              this.detailsJSON = this.$store.state.list[this.elementNumber]
               clearInterval(time)
           }});
         })
